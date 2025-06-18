@@ -4,7 +4,7 @@ import AppointmentForm from './components/AppointmentForm';
 import AppointmentList from './components/AppointmentList';
 import './styles.css';
 
-// Create Axios instance here instead of api.js
+
 const api = axios.create({
   baseURL: 'http://localhost:3001/api',
 });
@@ -14,18 +14,15 @@ function App() {
   const [appointmentToEdit, setAppointmentToEdit] = useState(null);
   const [weather, setWeather] = useState(null);
 
-
-  // Handle form submission (add or update)
   const handleSaved = () => {
     setAppointmentToEdit(null);
     setRefresh(prev => !prev);
   };
 
-  // Cancel editing
   const clearEdit = () => setAppointmentToEdit(null);
 
-  // Pass appointment to form for editing
   const handleEdit = (appointment) => setAppointmentToEdit(appointment);
+  
   //Weather in Amman using API
   useEffect(() => {
   const fetchWeather = async () => {
